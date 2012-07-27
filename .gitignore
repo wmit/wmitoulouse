@@ -74,3 +74,4 @@ public/assets/*
 .jhw-cache/
 jhw*
 public/uploads/*
+coverage
