@@ -2,4 +2,4 @@
 
 ## Goal of the project
 
-Create a communautary event calendar.
+Create a community-driven event calendar.
