@@ -10,6 +10,7 @@ group :assets do
 end
 gem 'jquery-rails'
 gem 'slim'
+gem 'slim-rails'
 group :test, :development do
   gem 'rspec-rails'
   gem 'factory_girl'
