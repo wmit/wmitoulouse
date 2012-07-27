@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 gem 'rails', '3.2.7'
-gem 'pg'
+group :production do
+  gem 'pg'
+end
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
@@ -13,6 +15,7 @@ group :test, :development do
   gem 'factory_girl'
   gem 'forgery'
   gem 'heroku'
+  gem 'sqlite3'
 end
 group :test do
   gem 'capybara'
