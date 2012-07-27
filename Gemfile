@@ -9,7 +9,7 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 gem 'jquery-rails'
-gem 'slim', :require => 'slim/rails'
+gem 'slim'
 gem 'slim-rails'
 group :test, :development do
   gem 'rspec-rails'
