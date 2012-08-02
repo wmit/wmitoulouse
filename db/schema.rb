@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120802071416) do
+ActiveRecord::Schema.define(:version => 20120802073205) do
 
   create_table "wmit_events", :force => true do |t|
     t.string   "title"
@@ -24,5 +24,14 @@ ActiveRecord::Schema.define(:version => 20120802071416) do
   end
 
   add_index "wmit_events", ["place_id"], :name => "index_wmit_events_on_place_id"
+
+  create_table "wmit_places", :force => true do |t|
+    t.string   "title"
+    t.string   "address"
+    t.decimal  "latitude"
+    t.decimal  "longitude"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
 end
