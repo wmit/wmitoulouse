@@ -19,14 +19,25 @@ gem 'slim-rails'
 group :test, :development do
   gem 'rspec-rails'
   gem 'factory_girl'
+  gem 'factory_girl_rails'
   gem 'forgery'
   gem 'heroku'
   gem 'sqlite3'
+  gem 'spork'
 end
 group :test do
+  gem 'guard-rspec'
+  gem 'guard-spork'
+  gem 'guard-bundler'
+  gem "guard-livereload"
   gem 'capybara'
   gem 'launchy'
   gem 'database_cleaner'
   gem 'capybara-webkit'
   gem 'simplecov'
+end
+
+group :test, :darwin do
+  gem 'rb-fsevent'
+  gem 'growl'
 end
