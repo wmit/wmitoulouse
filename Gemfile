@@ -19,9 +19,11 @@ gem 'slim-rails'
 group :test, :development do
   gem 'rspec-rails'
   gem 'factory_girl'
+  gem 'factory_girl_rails'
   gem 'forgery'
   gem 'heroku'
   gem 'sqlite3'
+  gem 'spork'
 end
 group :test do
   gem 'guard-rspec'
