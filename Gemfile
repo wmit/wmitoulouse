@@ -24,9 +24,18 @@ group :test, :development do
   gem 'sqlite3'
 end
 group :test do
+  gem 'guard-rspec'
+  gem 'guard-spork'
+  gem 'guard-bundler'
+  gem "guard-livereload"
   gem 'capybara'
   gem 'launchy'
   gem 'database_cleaner'
   gem 'capybara-webkit'
   gem 'simplecov'
+end
+
+group :test, :darwin do
+  gem 'rb-fsevent'
+  gem 'growl'
 end
