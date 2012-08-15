@@ -37,7 +37,7 @@ describe Wmit::Event do
     context "when placename is not set" do
       let(:new_place_name) { nil }
       it { should be_approved }
-      its(:place) { should eql be_approved }
+      its(:place) { should be_approved }
     end
   end
 
