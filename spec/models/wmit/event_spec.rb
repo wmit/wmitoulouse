@@ -42,9 +42,20 @@ describe Wmit::Event do
   end
 
   describe 'scope' do
+    let(:unapproved_event) { FactoryGirl.create(:wmit_event, state: 'unapproved')}
+    let(:past_event)       { FactoryGirl.create(:wmit_event, scheduled_at: Time.current - 1.day) }
+    let(:future_event)     { FactoryGirl.create(:wmit_event, scheduled_at: Time.current + 1.day) }
+    let(:today_event)      { FactoryGirl.create(:wmit_event, scheduled_at: Date.today.to_time) }
+    let(:faraway_event)    { FactoryGirl.create(:wmit_event, scheduled_at: Time.current + 5.days) }
+    before { events = [unapproved_event, past_event, faraway_event, future_event, today_event] }
+
     describe '#feed' do
+      subject { Wmit::Event.feed }
+      it { should eq [today_event, future_event, faraway_event] }
     end
     describe '#online' do
+      subject { Wmit::Event.online }
+      it { should eq [faraway_event, future_event, today_event, past_event ] }
     end
   end
 

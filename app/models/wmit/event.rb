@@ -4,6 +4,9 @@ class Wmit::Event < ActiveRecord::Base
   attr_writer :new_place_name
   before_save :create_if_new_place, if: :new_place_name?
 
+  scope :feed,   -> { where(state: :approved).where('scheduled_at >= ?', Date.today.to_time).order('scheduled_at ASC') }
+  scope :online, -> { where(state: :approved).order('scheduled_at DESC') }
+
   def new_place_name=(place_name)
     @new_place_name = place_name
     if @new_place_name.present?
