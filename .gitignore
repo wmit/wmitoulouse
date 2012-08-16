@@ -75,3 +75,4 @@ public/assets/*
 jhw*
 public/uploads/*
 coverage
+.tm_properties

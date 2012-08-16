@@ -15,9 +15,9 @@ class Wmit::Event < ActiveRecord::Base
     @new_place_name.present?
   end
 
-  state_machine initial: 'approved' do
-    state 'approved'
-    state 'unapproved'
+  state_machine initial: :approved do
+    state :approved
+    state :unapproved
   end
 
   def create_if_new_place
