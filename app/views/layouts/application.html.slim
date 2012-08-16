@@ -7,4 +7,8 @@ html
   = csrf_meta_tags
 
 body
+  - content_for :header do
+    h1 We Meet In Toulouse
+    = link_to t('events.new.link'), new_wmit_event_path
+  = yield :header
   = yield
