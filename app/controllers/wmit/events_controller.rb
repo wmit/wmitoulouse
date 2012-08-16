@@ -16,7 +16,7 @@ class Wmit::EventsController < ApplicationController
   end
 
   def create
-    @event = Wmit::Event.new(params[:event])
+    @event = Wmit::Event.new(params[:wmit_event])
     if @event.save
       redirect_to @event
     else
@@ -26,7 +26,7 @@ class Wmit::EventsController < ApplicationController
 
   def update
     @event = Wmit::Event.find params[:id]
-    if @event.update_attributes params[:event]
+    if @event.update_attributes params[:wmit_event]
       redirect_to @event
     else
       render action: 'edit'

@@ -31,7 +31,7 @@ describe Wmit::EventsController do
       event.stub(save: success?, to_param: 123)
       Wmit::Event.stub(:new).with(some_params).and_return event
     end
-    subject { post :create, event: some_params }
+    subject { post :create, wmit_event: some_params }
     context "With valid attributes" do
       let(:success?) { true }
       it { should redirect_to event }
@@ -58,7 +58,7 @@ describe Wmit::EventsController do
       event.stub(:update_attributes).with(some_params).and_return(success?)
       Wmit::Event.stub(:find).with("123").and_return event
     end
-    subject { put :update, id: "123", event: some_params }
+    subject { put :update, id: "123", wmit_event: some_params }
     context "With valid attributes" do
       let(:success?) { true }
       it { should redirect_to event }

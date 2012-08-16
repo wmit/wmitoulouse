@@ -6,4 +6,7 @@ class Wmit::Place < ActiveRecord::Base
     state :unapproved
   end
 
+  def to_s
+    title
+  end
 end

@@ -14,7 +14,7 @@ end
 
 gem 'jquery-rails'
 gem 'slim-rails'
-
+gem 'simple_form'
 gem 'state_machine'
 
 group :test, :development do
