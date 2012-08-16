@@ -7,7 +7,7 @@ feature "Creating an event" do
     place
   end
 
-  scenario "From the home page, any user can click a link to create an event" do
+  scenario "From the home page, any user can click a link to create an event (with an existing place)" do
     visit '/'
     click_link I18n.t('events.new.link')
     within '#new_wmit_event' do
@@ -15,6 +15,9 @@ feature "Creating an event" do
       fill_in 'wmit_event[scheduled_at]', with: (Time.current + 1.day).to_s
       select place.to_s, from: 'wmit_event[place_id]'
       find('input[type=submit]').click
+    end
+    within 'h2' do
+      page.should have_content 'A new event'
     end
   end
 end
