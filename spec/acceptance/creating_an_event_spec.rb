@@ -1,4 +1,4 @@
-require 'acceptance_helper'
+require File.dirname(__FILE__) + '/acceptance_helper'
 
-scenario "Creating an event" do
+feature "Creating an event" do
 end

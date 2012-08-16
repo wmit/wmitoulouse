@@ -32,6 +32,7 @@ group :test do
   gem 'guard-bundler'
   gem "guard-livereload"
   gem 'capybara'
+  gem 'steak'
   gem 'launchy'
   gem 'database_cleaner'
   gem 'capybara-webkit'
