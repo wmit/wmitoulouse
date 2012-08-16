@@ -15,7 +15,7 @@ describe Wmit::EventsController do
   describe "GET 'show' and GET 'edit'" do
     let(:event) { FactoryGirl.build_stubbed :wmit_event }
     [:edit, :show].each do |action|
-      before { Wmit::Event.stub_chain(:feed, :find).with("123").and_return event }
+      before { Wmit::Event.stub_chain(:online, :find).with("123").and_return event }
       subject { get :show, id: "123" }
       it { should be_success }
       it "assigns event to the view" do
@@ -56,7 +56,7 @@ describe Wmit::EventsController do
     before do
       event.stub( to_param: 123 )
       event.stub(:update_attributes).with(some_params).and_return(success?)
-      Wmit::Event.stub_chain(:feed, :find).with("123").and_return event
+      Wmit::Event.stub(:find).with("123").and_return event
     end
     subject { put :update, id: "123", event: some_params }
     context "With valid attributes" do
@@ -74,7 +74,7 @@ describe Wmit::EventsController do
     let(:some_params) { {'some' => 'params'} }
     before do
       event.stub( to_param: 123 )
-      Wmit::Event.stub_chain(:feed, :find).with("123").and_return event
+      Wmit::Event.stub(:find).with("123").and_return event
     end
     subject { delete :destroy, id: "123" }
     it "destroys item and redirects to index" do

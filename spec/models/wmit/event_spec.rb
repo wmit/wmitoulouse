@@ -41,4 +41,11 @@ describe Wmit::Event do
     end
   end
 
+  describe 'scope' do
+    describe '#feed' do
+    end
+    describe '#online' do
+    end
+  end
+
 end
