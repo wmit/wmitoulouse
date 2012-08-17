@@ -1,4 +1,6 @@
 fr:
-  events:
-    new:
-      link: Ajouter un événement
+  wmit:
+    events:
+      new:
+        link: Ajouter un événement
+        title: Ajouter un événement
