@@ -1,0 +1,3 @@
+jQuery ->
+  $('.datepicker').datetimepicker
+    separator: ' - '

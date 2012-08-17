@@ -1,0 +1,14 @@
+<!-- It is more efficient to load javascript here, so there prevente of deadends.  -->
+<%= yield :external_js %>
+<%= javascript_include_tag "application" %>
+<script type="text/javascript">
+  // http://trentrichardson.com/examples/timepicker/
+  // http://jquery-ui.googlecode.com/svn/trunk/ui/i18n/
+  jQuery(function() {
+    $.datepicker.setDefaults($.datepicker.regional['<%= datepicker_locale %>']);
+    $.timepicker.setDefaults($.timepicker.regional['<%= datepicker_locale %>']);
+    $('.datepicker').datetimepicker({
+      separator: ' - '
+    });
+  });
+</script>
