@@ -1,5 +1,5 @@
 .event
-  h3= event.title
+  h3= link_to event.title, event
   dl.info
     dt= t('activerecord.attributes.wmit/event.scheduled_at')
     dd= event.scheduled_at
