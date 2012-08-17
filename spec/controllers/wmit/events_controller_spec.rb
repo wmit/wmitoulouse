@@ -16,7 +16,7 @@ describe Wmit::EventsController do
     let(:event) { FactoryGirl.build_stubbed :wmit_event }
     [:edit, :show].each do |action|
       before { Wmit::Event.stub_chain(:online, :find).with("123").and_return event }
-      subject { get :show, id: "123" }
+      subject { get action, id: "123" }
       it { should be_success }
       it "assigns event to the view" do
         subject; assigns[:event].should eql event
