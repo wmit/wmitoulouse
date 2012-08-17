@@ -18,8 +18,9 @@ describe Wmit::Event do
     end
   end
   describe '#save' do
-    subject { FactoryGirl.create(:wmit_event, new_place_name: new_place_name) }
+    subject { FactoryGirl.create(:wmit_event, new_place_name: new_place_name, place: place) }
     context "when placename is set" do
+      let(:place) { nil }
       let(:new_place_name) { 'A new place' }
       it "creates a new place" do
         expect {
@@ -35,9 +36,27 @@ describe Wmit::Event do
       it { should be_unapproved }
     end
     context "when placename is not set" do
+      let(:place) { FactoryGirl.create(:wmit_place) }
       let(:new_place_name) { nil }
       it { should be_approved }
-      its(:place) { should be_approved }
+    end
+  end
+
+  describe 'scope' do
+    let(:unapproved_event) { FactoryGirl.create(:wmit_event, state: 'unapproved')}
+    let(:past_event)       { FactoryGirl.create(:wmit_event, scheduled_at: Time.current - 1.day) }
+    let(:future_event)     { FactoryGirl.create(:wmit_event, scheduled_at: Time.current + 1.day) }
+    let(:today_event)      { FactoryGirl.create(:wmit_event, scheduled_at: Date.today.to_time) }
+    let(:faraway_event)    { FactoryGirl.create(:wmit_event, scheduled_at: Time.current + 5.days) }
+    before { events = [unapproved_event, past_event, faraway_event, future_event, today_event] }
+
+    describe '#feed' do
+      subject { Wmit::Event.feed }
+      it { should eq [today_event, future_event, faraway_event] }
+    end
+    describe '#online' do
+      subject { Wmit::Event.online }
+      it { should eq [faraway_event, future_event, today_event, past_event ] }
     end
   end
 

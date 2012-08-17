@@ -1,8 +1,10 @@
 Wmitoulouse::Application.routes.draw do
-  get "example/index"
 
-  root to: 'home#index'
+  root to: 'wmit/events#index'
 
+  namespace :wmit do
+    resources :events
+  end
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

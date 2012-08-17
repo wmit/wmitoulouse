@@ -10,11 +10,13 @@ group :assets do
   gem 'compass-rails', '~> 1.0.3'
   gem 'zurb-foundation', '~> 3.0.1'
   gem 'uglifier', '>= 1.0.3'
+  gem 'jquery-ui-rails'
+
 end
 
 gem 'jquery-rails'
 gem 'slim-rails'
-
+gem 'simple_form'
 gem 'state_machine'
 
 group :test, :development do
@@ -32,6 +34,7 @@ group :test do
   gem 'guard-bundler'
   gem "guard-livereload"
   gem 'capybara'
+  gem 'steak'
   gem 'launchy'
   gem 'database_cleaner'
   gem 'capybara-webkit'

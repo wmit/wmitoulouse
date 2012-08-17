@@ -1,0 +1,8 @@
+fr:
+  activerecord:
+    models:
+      wmit/event: Evénements
+    attributes:
+      wmit/event:
+        scheduled_at: Le
+        place: à

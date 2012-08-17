@@ -1,0 +1,2 @@
+module Wmit::EventsHelper
+end

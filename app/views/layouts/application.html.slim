@@ -1,3 +1,6 @@
+- content_for :header do
+  = render 'layouts/header'
+
 html
   head
     title Wmitoulouse
@@ -7,4 +10,12 @@ html
   = csrf_meta_tags
 
 body
-  = yield
+  header
+    = yield :header
+  #main
+    #content
+      = yield
+    #sidebar
+      = yield :sidebar
+  footer.row
+    = render 'layouts/footer'
