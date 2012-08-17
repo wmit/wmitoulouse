@@ -1,6 +1,8 @@
 fr:
   wmit:
     events:
+      index:
+        title: Quoi faire ?
       new:
         link: Ajouter un événement
         title: Ajouter un événement
